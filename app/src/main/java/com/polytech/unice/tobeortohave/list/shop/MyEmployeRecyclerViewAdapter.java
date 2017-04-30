@@ -1,30 +1,27 @@
-package com.polytech.unice.tobeortohave.list;
+package com.polytech.unice.tobeortohave.list.shop;
 
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.polytech.unice.tobeortohave.R;
-import com.polytech.unice.tobeortohave.list.ShopDetailsFragment.OnListFragmentInteractionListener;
+import com.polytech.unice.tobeortohave.list.shop.EmployeFragment.OnListFragmentInteractionListener;
+import com.polytech.unice.tobeortohave.list.shop.dummy.EmployeContent.EmployerDetails;
 
 import java.util.List;
 
-import static com.polytech.unice.tobeortohave.list.dummy.ShopContent.ShopDetail;
-
 /**
- * {@link RecyclerView.Adapter} that can display a {@link ShopDetail} and makes a call to the
+ * {@link RecyclerView.Adapter} that can display a {@link EmployerDetails} and makes a call to the
  * specified {@link OnListFragmentInteractionListener}.
  * TODO: Replace the implementation with code for your data type.
  */
-public class MyShopDetailsRecyclerViewAdapter extends RecyclerView.Adapter<MyShopDetailsRecyclerViewAdapter.ViewHolder> {
+public class MyEmployeRecyclerViewAdapter extends RecyclerView.Adapter<MyEmployeRecyclerViewAdapter.ViewHolder> {
 
-    private final List<ShopDetail> mValues;
+    private final List<EmployerDetails> mValues;
     private final OnListFragmentInteractionListener mListener;
 
-    public MyShopDetailsRecyclerViewAdapter(List<ShopDetail> items, OnListFragmentInteractionListener listener) {
+    public MyEmployeRecyclerViewAdapter(List<EmployerDetails> items, OnListFragmentInteractionListener listener) {
         mValues = items;
         mListener = listener;
     }
@@ -32,16 +29,15 @@ public class MyShopDetailsRecyclerViewAdapter extends RecyclerView.Adapter<MySho
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.fragment_shopdetails, parent, false);
+                .inflate(R.layout.fragment_employe, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
-        Log.d("holder : ", holder.toString());
         holder.mContentName.setText(mValues.get(position).name);
-        holder.mContentAdress.setText(mValues.get(position).adress);
+        holder.mContentName.setText(mValues.get(position).role);
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,15 +58,15 @@ public class MyShopDetailsRecyclerViewAdapter extends RecyclerView.Adapter<MySho
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
+        public final TextView mContentRole;
         public final TextView mContentName;
-        public final TextView mContentAdress;
-        public ShopDetail mItem;
+        public EmployerDetails mItem;
 
         public ViewHolder(View view) {
             super(view);
             mView = view;
             mContentName = (TextView) view.findViewById(R.id.name);
-            mContentAdress = (TextView) view.findViewById(R.id.adress);
+            mContentRole = (TextView) view.findViewById(R.id.role);
         }
 
         @Override

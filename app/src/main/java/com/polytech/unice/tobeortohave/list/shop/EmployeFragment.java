@@ -1,4 +1,4 @@
-package com.polytech.unice.tobeortohave.list;
+package com.polytech.unice.tobeortohave.list.shop;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -12,8 +12,8 @@ import android.view.ViewGroup;
 
 import com.polytech.unice.tobeortohave.DbHandler;
 import com.polytech.unice.tobeortohave.R;
-import com.polytech.unice.tobeortohave.list.dummy.ShopContent;
-import com.polytech.unice.tobeortohave.list.dummy.ShopContent.ShopDetail;
+import com.polytech.unice.tobeortohave.list.shop.dummy.EmployeContent;
+import com.polytech.unice.tobeortohave.list.shop.dummy.EmployeContent.EmployerDetails;
 
 /**
  * A fragment representing a list of Items.
@@ -21,32 +21,34 @@ import com.polytech.unice.tobeortohave.list.dummy.ShopContent.ShopDetail;
  * Activities containing this fragment MUST implement the {@link OnListFragmentInteractionListener}
  * interface.
  */
-public class ShopDetailsFragment extends Fragment {
+public class EmployeFragment extends Fragment {
 
     // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
     // TODO: Customize parameters
-    private int mColumnCount = 1;
+    private int mColumnCount = 2;
     private OnListFragmentInteractionListener mListener;
+    private int shopId;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
      */
-    public ShopDetailsFragment() {
+    public EmployeFragment() {
     }
 
     // TODO: Customize parameter initialization
     @SuppressWarnings("unused")
-    public static ShopDetailsFragment newInstance() {
-        return new ShopDetailsFragment();
+    public static EmployeFragment newInstance(int shopId) {
+        EmployeFragment fragment = new EmployeFragment();
+        fragment.shopId = shopId;
+        return fragment;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        DbHandler.getInstance(getContext()).getShops();
-
+        DbHandler.getInstance(getContext()).getEmployes(shopId);
         if (getArguments() != null) {
             mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
         }
@@ -55,7 +57,7 @@ public class ShopDetailsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_shopdetails_list, container, false);
+        View view = inflater.inflate(R.layout.fragment_employe_list, container, false);
 
         // Set the adapter
         if (view instanceof RecyclerView) {
@@ -66,7 +68,7 @@ public class ShopDetailsFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new MyShopDetailsRecyclerViewAdapter(ShopContent.ITEMS, mListener));
+            recyclerView.setAdapter(new MyEmployeRecyclerViewAdapter(EmployeContent.ITEMS, mListener));
         }
         return view;
     }
@@ -101,6 +103,6 @@ public class ShopDetailsFragment extends Fragment {
      */
     public interface OnListFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onListFragmentInteraction(ShopDetail item);
+        void onListFragmentInteraction(EmployerDetails item);
     }
 }

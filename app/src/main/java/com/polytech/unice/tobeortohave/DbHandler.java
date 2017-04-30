@@ -7,7 +7,8 @@ import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-import com.polytech.unice.tobeortohave.list.dummy.DummyContent;
+import com.polytech.unice.tobeortohave.list.dummy.ShopContent;
+import com.polytech.unice.tobeortohave.list.shop.dummy.EmployeContent;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -28,9 +29,9 @@ public class DbHandler extends SQLiteOpenHelper {
     private DbHandler(Context context) {
         super(context, DB_NAME, null, 1);
         this.context = context;
-        try{
+        try {
             SQLiteDatabase.openDatabase(DB_PATH + DB_NAME, null, SQLiteDatabase.OPEN_READWRITE);
-        }catch (SQLiteException e){
+        } catch (SQLiteException e) {
             createDb();
         }
     }
@@ -52,7 +53,7 @@ public class DbHandler extends SQLiteOpenHelper {
                     while (!line.contains(";")) {
                         line += reader.readLine();
                     }
-                    Log.d("Line " ,line);
+                    Log.d("Line ", line);
                     db.execSQL(line);
                 }
             }
@@ -61,16 +62,14 @@ public class DbHandler extends SQLiteOpenHelper {
         }
     }
 
-    public void getShops(){
-        if (DummyContent.ITEMS.isEmpty()){
+    public void getShops() {
+        if (ShopContent.ITEMS.isEmpty()) {
             SQLiteDatabase db = getReadableDatabase();
             Cursor cursor = db.rawQuery("SELECT * FROM shops", null);
 
-            Log.d("CURSOR  " , "start");
             cursor.moveToFirst();
-            while (!cursor.isAfterLast()){
-                Log.d("CURSOR : ", cursor.toString());
-                DummyContent.addItem(new DummyContent.ShopDetail(
+            while (!cursor.isAfterLast()) {
+                ShopContent.addItem(new ShopContent.ShopDetail(
                         cursor.getInt(0),
                         cursor.getString(1),
                         cursor.getString(2),
@@ -79,7 +78,6 @@ public class DbHandler extends SQLiteOpenHelper {
                 ));
                 cursor.moveToNext();
             }
-            Log.d("CURSOR ", "fin" );
 
             cursor.close();
         }
@@ -95,4 +93,22 @@ public class DbHandler extends SQLiteOpenHelper {
 
     }
 
+    public void getEmployes(int shopId) {
+        if (EmployeContent.ITEMS.isEmpty()) {
+            SQLiteDatabase db = getReadableDatabase();
+            Cursor cursor = db.rawQuery("SELECT * FROM employes WHERE shopId=?", new String[]{String.valueOf(shopId)});
+
+            cursor.moveToFirst();
+            while (!cursor.isAfterLast()) {
+                EmployeContent.addItem(new EmployeContent.EmployerDetails(
+                        String.valueOf(cursor.getInt(0)),
+                        cursor.getString(1),
+                        cursor.getString(2)
+                ));
+                cursor.moveToNext();
+            }
+
+            cursor.close();
+        }
+    }
 }

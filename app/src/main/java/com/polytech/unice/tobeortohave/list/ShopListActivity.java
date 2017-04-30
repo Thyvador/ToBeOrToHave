@@ -22,7 +22,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.polytech.unice.tobeortohave.R;
-import com.polytech.unice.tobeortohave.list.dummy.DummyContent;
+import com.polytech.unice.tobeortohave.list.dummy.ShopContent;
 import com.polytech.unice.tobeortohave.list.shop.ShopDetailActivity;
 
 public class ShopListActivity extends AppCompatActivity implements ShopDetailsFragment.OnListFragmentInteractionListener{
@@ -87,7 +87,7 @@ public class ShopListActivity extends AppCompatActivity implements ShopDetailsFr
     }
 
     @Override
-    public void onListFragmentInteraction(DummyContent.ShopDetail item) {
+    public void onListFragmentInteraction(ShopContent.ShopDetail item) {
         Intent intent = new Intent(getApplicationContext(), ShopDetailActivity.class);
         intent.putExtra("id", item.id);
         startActivity(intent);
