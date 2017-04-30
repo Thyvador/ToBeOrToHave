@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.polytech.unice.tobeortohave.R;
-import com.polytech.unice.tobeortohave.list.ShopDetailsFragment.OnListFragmentInteractionListener;
+import com.polytech.unice.tobeortohave.list.ShopListFragment.OnListFragmentInteractionListener;
 
 import java.util.List;
 
@@ -32,7 +32,7 @@ public class MyShopDetailsRecyclerViewAdapter extends RecyclerView.Adapter<MySho
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.fragment_shopdetails, parent, false);
+                .inflate(R.layout.fragment_shop_item, parent, false);
         return new ViewHolder(view);
     }
 
@@ -41,7 +41,6 @@ public class MyShopDetailsRecyclerViewAdapter extends RecyclerView.Adapter<MySho
         holder.mItem = mValues.get(position);
         Log.d("holder : ", holder.toString());
         holder.mContentName.setText(mValues.get(position).name);
-        holder.mContentAdress.setText(mValues.get(position).adress);
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,14 +62,12 @@ public class MyShopDetailsRecyclerViewAdapter extends RecyclerView.Adapter<MySho
     public class ViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
         public final TextView mContentName;
-        public final TextView mContentAdress;
         public ShopDetail mItem;
 
         public ViewHolder(View view) {
             super(view);
             mView = view;
             mContentName = (TextView) view.findViewById(R.id.name);
-            mContentAdress = (TextView) view.findViewById(R.id.adress);
         }
 
         @Override

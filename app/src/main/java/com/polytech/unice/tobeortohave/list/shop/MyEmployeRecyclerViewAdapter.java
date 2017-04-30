@@ -37,7 +37,7 @@ public class MyEmployeRecyclerViewAdapter extends RecyclerView.Adapter<MyEmploye
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
         holder.mContentName.setText(mValues.get(position).name);
-        holder.mContentName.setText(mValues.get(position).role);
+        holder.mContentRole.setText(mValues.get(position).role);
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override

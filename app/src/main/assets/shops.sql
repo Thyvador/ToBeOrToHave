@@ -23,6 +23,6 @@ INSERT INTO shops (id, name, adress, benefits, cost) VALUES
 
 INSERT INTO employes(id, name, role, shopId) VALUES
   (0, 'Sébastien Patrick', 'Manager', 0),
-  (0, 'Jackie Michel', 'Responsable marketing', 0),
-  (0, 'Luke Skywalker', 'Responsable rayon', 0),
-  (0, 'R2 D2', 'Caisse enregistreuse', 0);
+  (1, 'Jackie Michel', 'Responsable marketing', 0),
+  (2, 'Luke Skywalker', 'Responsable rayon', 0),
+  (3, 'R2 D2', 'Caisse enregistreuse', 0);

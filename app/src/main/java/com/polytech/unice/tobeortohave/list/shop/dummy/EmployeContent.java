@@ -51,10 +51,10 @@ public class EmployeContent {
         public final String name;
         public final String role;
 
-        public EmployerDetails(String id, String content, String details) {
+        public EmployerDetails(String id, String content, String role) {
             this.id = id;
             this.name = content;
-            this.role = details;
+            this.role = role;
         }
 
         @Override

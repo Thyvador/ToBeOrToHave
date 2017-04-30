@@ -1,12 +1,13 @@
 package com.polytech.unice.tobeortohave.list;
 
-import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -23,9 +24,15 @@ import android.widget.TextView;
 
 import com.polytech.unice.tobeortohave.R;
 import com.polytech.unice.tobeortohave.list.dummy.ShopContent;
-import com.polytech.unice.tobeortohave.list.shop.ShopDetailActivity;
+import com.polytech.unice.tobeortohave.list.shop.EmployeFragment;
+import com.polytech.unice.tobeortohave.list.shop.ShopDetailFragment;
+import com.polytech.unice.tobeortohave.list.shop.ShopFragment;
+import com.polytech.unice.tobeortohave.list.shop.dummy.EmployeContent;
 
-public class ShopListActivity extends AppCompatActivity implements ShopDetailsFragment.OnListFragmentInteractionListener{
+public class ShopListActivity extends AppCompatActivity implements ShopListFragment.OnListFragmentInteractionListener,
+        ShopFragment.OnFragmentInteractionListener,
+        ShopDetailFragment.OnFragmentInteractionListener,
+        EmployeFragment.OnListFragmentInteractionListener{
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -88,9 +95,21 @@ public class ShopListActivity extends AppCompatActivity implements ShopDetailsFr
 
     @Override
     public void onListFragmentInteraction(ShopContent.ShopDetail item) {
-        Intent intent = new Intent(getApplicationContext(), ShopDetailActivity.class);
-        intent.putExtra("id", item.id);
-        startActivity(intent);
+
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+
+        transaction.replace(R.id.detail_fragment, ShopFragment.newInstance(item.id));
+        transaction.addToBackStack(null).commit();
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
+    }
+
+    @Override
+    public void onListFragmentInteraction(EmployeContent.EmployerDetails item) {
+
     }
 
     /**
@@ -121,7 +140,7 @@ public class ShopListActivity extends AppCompatActivity implements ShopDetailsFr
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_shop_list, container, false);
+            View rootView = inflater.inflate(R.layout.fragment_place_holder, container, false);
             TextView textView = (TextView) rootView.findViewById(R.id.section_label);
             textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
             return rootView;
@@ -148,7 +167,7 @@ public class ShopListActivity extends AppCompatActivity implements ShopDetailsFr
             // Return a PlaceholderFragment (defined as a static inner class below).
             switch (position){
                 case 0:
-                    return ShopDetailsFragment.newInstance();
+                    return ShopListFragment.newInstance();
                 case 1:
                     return MapsFragment.newInstance();
             }
