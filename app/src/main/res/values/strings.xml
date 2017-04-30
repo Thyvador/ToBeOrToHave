@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">ToBeOrToHave</string>
+    <string name="comparaison_de_magasin">Comparaison de magasin</string>
+    <string name="liste_des_magasins">Liste des magasins</string>
+    <string name="title_activity_shop_list">ShopListActivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="title_activity_shop_detail">ShopDetailActivity</string>
 </resources>
