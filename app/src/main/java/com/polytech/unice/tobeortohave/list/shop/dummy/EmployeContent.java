@@ -11,34 +11,27 @@ import java.util.Map;
  * <p>
  * TODO: Replace all uses of this class before publishing your app.
  */
-public class DummyContent {
+public class EmployeContent {
 
     /**
      * An array of sample (dummy) items.
      */
-    public static final List<DummyItem> ITEMS = new ArrayList<DummyItem>();
+    public static final List<EmployerDetails> ITEMS = new ArrayList<EmployerDetails>();
 
     /**
      * A map of sample (dummy) items, by ID.
      */
-    public static final Map<String, DummyItem> ITEM_MAP = new HashMap<String, DummyItem>();
+    public static final Map<String, EmployerDetails> ITEM_MAP = new HashMap<String, EmployerDetails>();
 
     private static final int COUNT = 25;
 
-    static {
-        // Add some sample items.
-        for (int i = 1; i <= COUNT; i++) {
-            addItem(createDummyItem(i));
-        }
-    }
-
-    private static void addItem(DummyItem item) {
+    public static void addItem(EmployerDetails item) {
         ITEMS.add(item);
         ITEM_MAP.put(item.id, item);
     }
 
-    private static DummyItem createDummyItem(int position) {
-        return new DummyItem(String.valueOf(position), "Item " + position, makeDetails(position));
+    private static EmployerDetails createDummyItem(int position) {
+        return new EmployerDetails(String.valueOf(position), "Item " + position, makeDetails(position));
     }
 
     private static String makeDetails(int position) {
@@ -53,12 +46,12 @@ public class DummyContent {
     /**
      * A dummy item representing a piece of name.
      */
-    public static class DummyItem {
+    public static class EmployerDetails {
         public final String id;
         public final String name;
         public final String role;
 
-        public DummyItem(String id, String content, String details) {
+        public EmployerDetails(String id, String content, String details) {
             this.id = id;
             this.name = content;
             this.role = details;

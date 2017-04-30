@@ -1,66 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.polytech.unice.tobeortohave.list.shop.ShopDetailActivity">
+    android:orientation="horizontal"
+    android:weightSum="1">
 
-    <android.support.design.widget.AppBarLayout
-        android:id="@id/appbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
-
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
-
-    </android.support.design.widget.AppBarLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
+    <fragment
+        android:id="@+id/shop_details_fragment"
+        android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_below="@id/appbar"
-        android:orientation="horizontal"
-        android:weightSum="1">
+        android:name="com.polytech.unice.tobeortohave.list.shop.dummy.ShopDetailFragment"
+        android:layout_weight="0.5" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_weight="0.5">
+    <fragment
+        android:id="@+id/employes_fragment"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:name="com.polytech.unice.tobeortohave.list.shop.EmployeFragment"
+        android:layout_weight="0.5"/>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="20sp" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="0.5"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/employes_text"
-                android:textSize="20sp"
-                android:layout_marginBottom="10dp"/>
-
-            <ListView
-                android:id="@+id/liste_employes"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-        </LinearLayout>
-
-    </LinearLayout>
-
-
-</RelativeLayout>
+</LinearLayout>

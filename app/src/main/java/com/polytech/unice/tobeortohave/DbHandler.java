@@ -29,11 +29,11 @@ public class DbHandler extends SQLiteOpenHelper {
     private DbHandler(Context context) {
         super(context, DB_NAME, null, 1);
         this.context = context;
-        try {
-            SQLiteDatabase.openDatabase(DB_PATH + DB_NAME, null, SQLiteDatabase.OPEN_READWRITE);
-        } catch (SQLiteException e) {
+//        try {
+//            SQLiteDatabase.openDatabase(DB_PATH + DB_NAME, null, SQLiteDatabase.OPEN_READWRITE);
+//        } catch (SQLiteException e) {
             createDb();
-        }
+//        }
     }
 
 

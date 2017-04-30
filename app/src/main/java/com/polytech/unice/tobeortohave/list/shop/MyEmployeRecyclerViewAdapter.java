@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 import com.polytech.unice.tobeortohave.list.shop.EmployeFragment.OnListFragmentInteractionListener;
 import com.polytech.unice.tobeortohave.list.shop.dummy.EmployeContent.EmployerDetails;
-
+import com.polytech.unice.tobeortohave.R;
 import java.util.List;
 
 /**
