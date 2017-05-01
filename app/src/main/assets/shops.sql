@@ -15,7 +15,7 @@ CREATE TABLE employes(
   shopID INT);
 
 INSERT INTO shops (id, name, adress, benefits, cost) VALUES
-  (0, 'To Be Or To Have - Nice', '125 Rue de la paix, Nice', 250000, 135000),
+  (0, 'To Be Or To Have - Nice', 'Nice', 250000, 135000),
   (1, 'To Be Or To Have - Paris', 'Paris', 300000, 11500),
   (2, 'To Be Or To Have - Bollène', 'Bollène', 160000, 148500),
   (3, 'To Be Or To Have - Biot', 'Biot', 240000, 162500),
