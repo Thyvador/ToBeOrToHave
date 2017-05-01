@@ -1,30 +1,31 @@
-package com.polytech.unice.tobeortohave.list;
+package com.polytech.unice.tobeortohave.compare;
 
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.CheckBox;
 
 import com.polytech.unice.tobeortohave.R;
-import com.polytech.unice.tobeortohave.list.ShopListFragment.OnListFragmentInteractionListener;
+import com.polytech.unice.tobeortohave.compare.ListShopCompareFragment.OnListFragmentInteractionListener;
+import com.polytech.unice.tobeortohave.compare.dummy.DummyContent.DummyItem;
+import com.polytech.unice.tobeortohave.dummy.ShopContent.ShopDetail;
 
 import java.util.List;
 
-import static com.polytech.unice.tobeortohave.dummy.ShopContent.ShopDetail;
-
 /**
- * {@link RecyclerView.Adapter} that can display a {@link ShopDetail} and makes a call to the
+ * {@link RecyclerView.Adapter} that can display a {@link DummyItem} and makes a call to the
  * specified {@link OnListFragmentInteractionListener}.
  * TODO: Replace the implementation with code for your data type.
  */
-public class MyShopDetailsRecyclerViewAdapter extends RecyclerView.Adapter<MyShopDetailsRecyclerViewAdapter.ViewHolder> {
+public class MyShopDetailRecyclerViewAdapter extends RecyclerView.Adapter<MyShopDetailRecyclerViewAdapter.ViewHolder> {
 
     private final List<ShopDetail> mValues;
     private final OnListFragmentInteractionListener mListener;
+    private ViewHolder checkedHolder;
 
-    public MyShopDetailsRecyclerViewAdapter(List<ShopDetail> items, OnListFragmentInteractionListener listener) {
+    public MyShopDetailRecyclerViewAdapter(List<ShopDetail> items, OnListFragmentInteractionListener listener) {
         mValues = items;
         mListener = listener;
     }
@@ -32,26 +33,32 @@ public class MyShopDetailsRecyclerViewAdapter extends RecyclerView.Adapter<MySho
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.fragment_shop_item, parent, false);
+                .inflate(R.layout.fragment_shop_compare, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
-        Log.d("holder : ", holder.toString());
-        holder.mContentName.setText(mValues.get(position).name);
+        holder.checkBox.setText(mValues.get(position).name);
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (null != mListener) {
-                    // Notify the active callbacks interface (the activity, if the
-                    // fragment is attached to one) that an item has been selected.
                     mListener.onListFragmentInteraction(holder.mItem);
+                    changeCheckBox(holder);
                 }
             }
         });
+    }
+
+    public void changeCheckBox(ViewHolder holder){
+        if (checkedHolder != null){
+            checkedHolder.checkBox.setChecked(false);
+        }
+        checkedHolder = holder;
+        checkedHolder.checkBox.setChecked(true);
     }
 
     @Override
@@ -61,18 +68,24 @@ public class MyShopDetailsRecyclerViewAdapter extends RecyclerView.Adapter<MySho
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
-        public final TextView mContentName;
+        public final CheckBox checkBox;
         public ShopDetail mItem;
 
         public ViewHolder(View view) {
             super(view);
             mView = view;
-            mContentName = (TextView) view.findViewById(R.id.name);
+            checkBox = (CheckBox) view.findViewById(R.id.check_box);
+            checkBox.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    changeCheckBox(ViewHolder.this);
+                }
+            });
         }
 
         @Override
         public String toString() {
-            return super.toString() + " '" + mContentName.getText() + "'";
+            return super.toString();
         }
     }
 }

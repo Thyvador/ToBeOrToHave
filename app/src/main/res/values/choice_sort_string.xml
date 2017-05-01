@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="sort_choice">
+        <item>Tous</item>
+        <item>Par revenus</item>
+    </string-array>
+</resources>

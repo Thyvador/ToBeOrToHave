@@ -1,4 +1,4 @@
-package com.polytech.unice.tobeortohave.list.dummy;
+package com.polytech.unice.tobeortohave.dummy;
 
 import android.support.annotation.NonNull;
 
@@ -58,7 +58,8 @@ public class ShopContent {
         @Override
         public int compareTo(@NonNull Object o) {
             ShopDetail shopDetail = (ShopDetail) o;
-            return (this.benefits - this.cost) - (shopDetail.benefits - shopDetail.cost);
+            return this.id  - shopDetail.id;
         }
+
     }
 }

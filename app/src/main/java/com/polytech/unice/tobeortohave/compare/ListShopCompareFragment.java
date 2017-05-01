@@ -1,4 +1,4 @@
-package com.polytech.unice.tobeortohave.list;
+package com.polytech.unice.tobeortohave.compare;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -8,12 +8,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
 
 import com.polytech.unice.tobeortohave.DbHandler;
 import com.polytech.unice.tobeortohave.R;
+import com.polytech.unice.tobeortohave.compare.dummy.DummyContent;
+import com.polytech.unice.tobeortohave.compare.dummy.DummyContent.DummyItem;
 import com.polytech.unice.tobeortohave.dummy.ShopContent;
 import com.polytech.unice.tobeortohave.dummy.ShopContent.ShopDetail;
 
@@ -23,23 +22,22 @@ import com.polytech.unice.tobeortohave.dummy.ShopContent.ShopDetail;
  * Activities containing this fragment MUST implement the {@link OnListFragmentInteractionListener}
  * interface.
  */
-public class ShopListFragment extends Fragment {
+public class ListShopCompareFragment extends Fragment {
 
     private OnListFragmentInteractionListener mListener;
-    private RecyclerView recyclerView;
-    private Spinner spinnerSort;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
      */
-    public ShopListFragment() {
+    public ListShopCompareFragment() {
     }
 
     // TODO: Customize parameter initialization
     @SuppressWarnings("unused")
-    public static ShopListFragment newInstance() {
-        return new ShopListFragment();
+    public static ListShopCompareFragment newInstance(int columnCount) {
+        ListShopCompareFragment fragment = new ListShopCompareFragment();
+        return fragment;
     }
 
     @Override
@@ -52,27 +50,15 @@ public class ShopListFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_shop_list, container, false);
-        spinnerSort = (Spinner) view.findViewById(R.id.sort_choice);
+        View view = inflater.inflate(R.layout.fragment_shop_compare_list, container, false);
 
-        ArrayAdapter<CharSequence> spinnerAdapter = ArrayAdapter.createFromResource(getContext(), R.array.sort_choice, android.R.layout.simple_spinner_item);
-        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerSort.setAdapter(spinnerAdapter);
-        spinnerSort.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-
-        recyclerView = (RecyclerView) view.findViewById(R.id.list);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerView.setAdapter(new MyShopDetailsRecyclerViewAdapter(ShopContent.ITEMS, mListener));
+        // Set the adapter
+        if (view instanceof RecyclerView) {
+            Context context = view.getContext();
+            RecyclerView recyclerView = (RecyclerView) view;
+            recyclerView.setLayoutManager(new LinearLayoutManager(context));
+            recyclerView.setAdapter(new MyShopDetailRecyclerViewAdapter(ShopContent.ITEMS, mListener));
+        }
         return view;
     }
 

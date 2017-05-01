@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.polytech.unice.tobeortohave.R;
-import com.polytech.unice.tobeortohave.list.dummy.ShopContent;
+import com.polytech.unice.tobeortohave.dummy.ShopContent;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -32,7 +32,7 @@ public class ShopDetailFragment extends Fragment {
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
-     * @return A new instance of fragment ShopDetailFragment.
+     * @return A new instance of fragment ListShopCompareFragment.
      */
     // TODO: Rename and change types and number of parameters
     public static ShopDetailFragment newInstance(int shopId) {

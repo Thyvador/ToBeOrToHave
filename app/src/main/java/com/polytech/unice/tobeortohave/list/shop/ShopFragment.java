@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.polytech.unice.tobeortohave.R;
-import com.polytech.unice.tobeortohave.list.dummy.ShopContent;
+import com.polytech.unice.tobeortohave.dummy.ShopContent;
 
 /**
  * A simple {@link Fragment} subclass.

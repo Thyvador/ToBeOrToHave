@@ -3,11 +3,10 @@ package com.polytech.unice.tobeortohave;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-import com.polytech.unice.tobeortohave.list.dummy.ShopContent;
+import com.polytech.unice.tobeortohave.dummy.ShopContent;
 import com.polytech.unice.tobeortohave.list.shop.dummy.EmployeContent;
 
 import java.io.BufferedReader;
