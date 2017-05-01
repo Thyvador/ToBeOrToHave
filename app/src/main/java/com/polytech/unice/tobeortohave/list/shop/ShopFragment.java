@@ -51,6 +51,8 @@ public class ShopFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_shop, container, false);;
         ((TextView) view.findViewById(R.id.shop_name)).setText(ShopContent.ITEM_MAP.get(shopId).name);
+        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.shop_details_fragment, ShopDetailFragment.newInstance(shopId)).addToBackStack(null).commit();
+        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.employes_fragment, EmployeFragment.newInstance(shopId)).addToBackStack(null).commit();
         return view;
     }
 

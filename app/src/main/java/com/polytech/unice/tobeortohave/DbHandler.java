@@ -31,7 +31,7 @@ public class DbHandler extends SQLiteOpenHelper {
 //        try {
 //            SQLiteDatabase.openDatabase(DB_PATH + DB_NAME, null, SQLiteDatabase.OPEN_READWRITE);
 //        } catch (SQLiteException e) {
-            createDb();
+        createDb();
 //        }
     }
 
@@ -93,21 +93,22 @@ public class DbHandler extends SQLiteOpenHelper {
     }
 
     public void getEmployes(int shopId) {
-        if (EmployeContent.ITEMS.isEmpty()) {
-            SQLiteDatabase db = getReadableDatabase();
-            Cursor cursor = db.rawQuery("SELECT * FROM employes WHERE shopId=?", new String[]{String.valueOf(shopId)});
+        EmployeContent.clear();
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM employes WHERE shopId=?", new String[]{String.valueOf(shopId)});
 
-            cursor.moveToFirst();
-            while (!cursor.isAfterLast()) {
-                EmployeContent.addItem(new EmployeContent.EmployerDetails(
-                        String.valueOf(cursor.getInt(0)),
-                        cursor.getString(1),
-                        cursor.getString(2)
-                ));
-                cursor.moveToNext();
-            }
-
-            cursor.close();
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()) {
+            EmployeContent.addItem(new EmployeContent.EmployerDetails(
+                    String.valueOf(cursor.getInt(0)),
+                    cursor.getString(1),
+                    cursor.getString(2)
+            ));
+            cursor.moveToNext();
         }
+
+        cursor.close();
+
+
     }
 }

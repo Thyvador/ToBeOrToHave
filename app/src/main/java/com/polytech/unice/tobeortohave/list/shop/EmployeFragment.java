@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,7 +25,7 @@ import com.polytech.unice.tobeortohave.list.shop.dummy.EmployeContent.EmployerDe
 public class EmployeFragment extends Fragment {
 
     private OnListFragmentInteractionListener mListener;
-    private int shopId;
+    private static int shopId;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -37,23 +38,24 @@ public class EmployeFragment extends Fragment {
     @SuppressWarnings("unused")
     public static EmployeFragment newInstance(int shopId) {
         EmployeFragment fragment = new EmployeFragment();
-        fragment.shopId = shopId;
+        EmployeFragment.shopId = shopId;
         return fragment;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        DbHandler.getInstance(getContext()).getEmployes(shopId);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        DbHandler.getInstance(getContext()).getEmployes(shopId);
         View view = inflater.inflate(R.layout.fragment_employe_list, container, false);
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.list);
         // Set the adapter
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        Log.d("LIST ", String.valueOf(EmployeContent.ITEMS));
         recyclerView.setAdapter(new MyEmployeRecyclerViewAdapter(EmployeContent.ITEMS, mListener));
 
         return view;

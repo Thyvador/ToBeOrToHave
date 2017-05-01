@@ -78,11 +78,11 @@ public class MapsFragment extends Fragment {
 
                 final RequestQueue queue = Volley.newRequestQueue(getContext());
 
+                position = new LatLng(10,10);
                 final Marker currentLocation = googleMap.addMarker(new MarkerOptions().position(position).title("Marker Title").snippet("Marker Description"));
 
 
                 // For zooming automatically to the location of the marker
-                position = new LatLng(10,10);
                 CameraPosition cameraPosition = new CameraPosition.Builder().target(position).zoom(12).build();
                 googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
 

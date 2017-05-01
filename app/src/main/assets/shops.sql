@@ -25,4 +25,8 @@ INSERT INTO employes(id, name, role, shopId) VALUES
   (0, 'Sébastien Patrick', 'Manager', 0),
   (1, 'Jackie Michel', 'Responsable marketing', 0),
   (2, 'Luke Skywalker', 'Responsable rayon', 0),
-  (3, 'R2 D2', 'Caisse enregistreuse', 0);
+  (3, 'R2 D2', 'Caisse enregistreuse', 0),
+  (4, 'Jean-Michel Test', 'Manager', 1),
+  (5, 'Lando Calrissian', 'Responsable rayon', 2),
+  (6, 'C3 PO', 'Responsable communication', 3),
+  (7, 'The Doctor', 'Responsable tech', 4);
