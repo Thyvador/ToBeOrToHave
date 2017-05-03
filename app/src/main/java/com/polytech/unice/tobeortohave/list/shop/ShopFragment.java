@@ -1,12 +1,14 @@
 package com.polytech.unice.tobeortohave.list.shop;
 
 import android.content.Context;
+import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.polytech.unice.tobeortohave.R;
@@ -49,7 +51,8 @@ public class ShopFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_shop, container, false);;
+        View view = inflater.inflate(R.layout.fragment_shop, container, false);
+
         ((TextView) view.findViewById(R.id.shop_name)).setText(ShopContent.ITEM_MAP.get(shopId).name);
         getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.shop_details_fragment, ShopDetailFragment.newInstance(shopId)).addToBackStack(null).commit();
         getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.employes_fragment, EmployeFragment.newInstance(shopId)).addToBackStack(null).commit();

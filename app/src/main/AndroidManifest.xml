@@ -23,7 +23,8 @@
         <activity
             android:name=".list.ShopListActivity"
             android:label="@string/title_activity_shop_list"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:configChanges="orientation|screenSize"/>
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
@@ -32,7 +33,7 @@
         <activity
             android:name=".compare.CompareActivity"
             android:label="@string/title_activity_compare"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

@@ -2,13 +2,15 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
+    android:orientation="vertical"
+    android:id="@+id/layout_list_shop"
     android:weightSum="1">
 
     <LinearLayout
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginStart="15dp"
+        android:layout_marginEnd="35dp"
         android:layout_weight="0.5"
         android:orientation="vertical">
 
@@ -20,12 +22,13 @@
         <android.support.v7.widget.RecyclerView
             android:id="@+id/list"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            />
     </LinearLayout>
 
     <FrameLayout
         android:id="@+id/detail_fragment"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="0.5" />
 

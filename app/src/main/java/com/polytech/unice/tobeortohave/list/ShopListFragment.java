@@ -1,15 +1,18 @@
 package com.polytech.unice.tobeortohave.list;
 
 import android.content.Context;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 
 import com.polytech.unice.tobeortohave.DbHandler;
@@ -28,6 +31,7 @@ public class ShopListFragment extends Fragment {
     private OnListFragmentInteractionListener mListener;
     private RecyclerView recyclerView;
     private Spinner spinnerSort;
+    private LinearLayout layoutFrag;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -54,6 +58,9 @@ public class ShopListFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_shop_list, container, false);
         spinnerSort = (Spinner) view.findViewById(R.id.sort_choice);
+
+        layoutFrag = (LinearLayout) view.findViewById(R.id.layout_list_shop);
+
 
         ArrayAdapter<CharSequence> spinnerAdapter = ArrayAdapter.createFromResource(getContext(), R.array.sort_choice, android.R.layout.simple_spinner_item);
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -92,6 +99,21 @@ public class ShopListFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
+    }
+
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+
+        Log.d("ORIENTATION :", String.valueOf(newConfig.orientation));
+        if(newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE){
+            layoutFrag.setOrientation(LinearLayout.HORIZONTAL);
+        }else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT){
+            layoutFrag.setOrientation(LinearLayout.VERTICAL);
+        }
+        Log.d("Layout orientation :", String.valueOf(layoutFrag.getOrientation()));
+
     }
 
     /**
