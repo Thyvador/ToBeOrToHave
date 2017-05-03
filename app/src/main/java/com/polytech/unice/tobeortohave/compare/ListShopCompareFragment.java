@@ -25,6 +25,7 @@ import com.polytech.unice.tobeortohave.dummy.ShopContent.ShopDetail;
 public class ListShopCompareFragment extends Fragment {
 
     private OnListFragmentInteractionListener mListener;
+    private int fragId;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -35,8 +36,9 @@ public class ListShopCompareFragment extends Fragment {
 
     // TODO: Customize parameter initialization
     @SuppressWarnings("unused")
-    public static ListShopCompareFragment newInstance(int columnCount) {
+    public static ListShopCompareFragment newInstance(int fragId) {
         ListShopCompareFragment fragment = new ListShopCompareFragment();
+        fragment.fragId = fragId;
         return fragment;
     }
 
@@ -57,7 +59,7 @@ public class ListShopCompareFragment extends Fragment {
             Context context = view.getContext();
             RecyclerView recyclerView = (RecyclerView) view;
             recyclerView.setLayoutManager(new LinearLayoutManager(context));
-            recyclerView.setAdapter(new MyShopDetailRecyclerViewAdapter(ShopContent.ITEMS, mListener));
+            recyclerView.setAdapter(new MyShopDetailRecyclerViewAdapter(ShopContent.ITEMS, mListener, fragId));
         }
         return view;
     }
@@ -92,6 +94,6 @@ public class ListShopCompareFragment extends Fragment {
      */
     public interface OnListFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onListFragmentInteraction(ShopDetail item);
+        void onListFragmentInteraction(ShopDetail item, int fragId);
     }
 }

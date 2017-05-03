@@ -1,5 +1,7 @@
 package com.polytech.unice.tobeortohave.dummy;
 
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.support.annotation.NonNull;
 
 import java.util.ArrayList;
@@ -35,7 +37,7 @@ public class ShopContent {
     /**
      * A dummy item representing a piece of name.
      */
-    public static class ShopDetail  implements Comparable{
+    public static class ShopDetail  implements Comparable, Parcelable{
         public final int id;
         public final String name;
         public final String adress;
@@ -50,6 +52,26 @@ public class ShopContent {
             this.cost = cost;
         }
 
+        protected ShopDetail(Parcel in) {
+            id = in.readInt();
+            name = in.readString();
+            adress = in.readString();
+            benefits = in.readInt();
+            cost = in.readInt();
+        }
+
+        public static final Creator<ShopDetail> CREATOR = new Creator<ShopDetail>() {
+            @Override
+            public ShopDetail createFromParcel(Parcel in) {
+                return new ShopDetail(in);
+            }
+
+            @Override
+            public ShopDetail[] newArray(int size) {
+                return new ShopDetail[size];
+            }
+        };
+
         @Override
         public String toString() {
             return name;
@@ -61,5 +83,18 @@ public class ShopContent {
             return this.id  - shopDetail.id;
         }
 
+        @Override
+        public int describeContents() {
+            return 0;
+        }
+
+        @Override
+        public void writeToParcel(Parcel dest, int flags) {
+            dest.writeInt(id);
+            dest.writeString(name);
+            dest.writeString(adress);
+            dest.writeInt(benefits);
+            dest.writeInt(cost);
+        }
     }
 }

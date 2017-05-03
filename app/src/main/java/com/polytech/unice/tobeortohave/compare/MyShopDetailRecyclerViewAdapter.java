@@ -23,11 +23,13 @@ public class MyShopDetailRecyclerViewAdapter extends RecyclerView.Adapter<MyShop
 
     private final List<ShopDetail> mValues;
     private final OnListFragmentInteractionListener mListener;
+    private int fragId;
     private ViewHolder checkedHolder;
 
-    public MyShopDetailRecyclerViewAdapter(List<ShopDetail> items, OnListFragmentInteractionListener listener) {
+    public MyShopDetailRecyclerViewAdapter(List<ShopDetail> items, OnListFragmentInteractionListener listener, int fragId) {
         mValues = items;
         mListener = listener;
+        this.fragId = fragId;
     }
 
     @Override
@@ -46,7 +48,7 @@ public class MyShopDetailRecyclerViewAdapter extends RecyclerView.Adapter<MyShop
             @Override
             public void onClick(View v) {
                 if (null != mListener) {
-                    mListener.onListFragmentInteraction(holder.mItem);
+                    mListener.onListFragmentInteraction(holder.mItem, fragId);
                     changeCheckBox(holder);
                 }
             }
