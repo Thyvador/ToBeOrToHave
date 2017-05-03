@@ -84,6 +84,31 @@ public class ShopContent {
         }
 
         @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+
+            ShopDetail that = (ShopDetail) o;
+
+            if (id != that.id) return false;
+            if (benefits != that.benefits) return false;
+            if (cost != that.cost) return false;
+            if (name != null ? !name.equals(that.name) : that.name != null) return false;
+            return adress != null ? adress.equals(that.adress) : that.adress == null;
+
+        }
+
+        @Override
+        public int hashCode() {
+            int result = id;
+            result = 31 * result + (name != null ? name.hashCode() : 0);
+            result = 31 * result + (adress != null ? adress.hashCode() : 0);
+            result = 31 * result + benefits;
+            result = 31 * result + cost;
+            return result;
+        }
+
+        @Override
         public int describeContents() {
             return 0;
         }

@@ -6,6 +6,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
@@ -35,7 +36,7 @@ public class CompareActivity extends AppCompatActivity implements ListShopCompar
         findViewById(R.id.button_compare).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (item1.compareTo(item2) == 0){
+                if (item1.equals(item2)){
                     Toast.makeText(getApplicationContext(), "Impossible de comparer deux fois le même magasin.", Toast.LENGTH_SHORT).show();
                 }else{
                     Intent intent = new Intent(getApplicationContext(), CompareDetailsActivity.class);
@@ -51,6 +52,7 @@ public class CompareActivity extends AppCompatActivity implements ListShopCompar
 
     @Override
     public void onListFragmentInteraction(ShopDetail item, int shopId) {
+        Log.d("Select :", item + " : " + shopId);
         if (shopId == 1){
             item1 = item;
         }else if(shopId == 2){

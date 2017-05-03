@@ -14,18 +14,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="047e4b34-4f1d-4a25-a0f3-3dc4100ff935" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/polytech/unice/tobeortohave/compare/CompareDetailsActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_compare_details.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/polytech/unice/tobeortohave/compare/CompareActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/polytech/unice/tobeortohave/compare/CompareActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/polytech/unice/tobeortohave/compare/ListShopCompareFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/polytech/unice/tobeortohave/compare/ListShopCompareFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/polytech/unice/tobeortohave/compare/MyShopDetailRecyclerViewAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/polytech/unice/tobeortohave/compare/MyShopDetailRecyclerViewAdapter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/polytech/unice/tobeortohave/dummy/ShopContent.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/polytech/unice/tobeortohave/dummy/ShopContent.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_compare.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_compare.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_shop_list.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_shop_list.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
     </list>
     <ignored path="ToBeOrToHave.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -60,11 +51,11 @@
       <file leaf-file-name="CompareActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/polytech/unice/tobeortohave/compare/CompareActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="660">
-              <caret line="43" column="40" selection-start-line="43" selection-start-column="40" selection-end-line="43" selection-end-column="40" />
+            <state relative-caret-position="242">
+              <caret line="54" column="49" selection-start-line="54" selection-start-column="49" selection-end-line="54" selection-end-column="49" />
               <folding>
-                <element signature="e#1430#2030#0" expanded="true" />
-                <element signature="e#2029#2030#0" expanded="true" />
+                <element signature="e#1455#2047#0" expanded="true" />
+                <element signature="e#2046#2047#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -86,8 +77,8 @@
       <file leaf-file-name="ShopContent.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/polytech/unice/tobeortohave/dummy/ShopContent.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="916">
-              <caret line="97" column="9" selection-start-line="97" selection-start-column="9" selection-end-line="97" selection-end-column="9" />
+            <state relative-caret-position="348">
+              <caret line="86" column="41" selection-start-line="86" selection-start-column="41" selection-end-line="86" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -2076,13 +2067,13 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/polytech/unice/tobeortohave/list/ShopListFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_shop_list.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/polytech/unice/tobeortohave/dummy/ShopContent.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_compare_details.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/polytech/unice/tobeortohave/list/ShopListActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/polytech/unice/tobeortohave/compare/MyShopDetailRecyclerViewAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/polytech/unice/tobeortohave/compare/ListShopCompareFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/polytech/unice/tobeortohave/compare/CompareDetailsActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_compare.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/polytech/unice/tobeortohave/dummy/ShopContent.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/polytech/unice/tobeortohave/compare/CompareActivity.java" />
       </list>
     </option>
@@ -2700,7 +2691,7 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.409894" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.409894" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32921588" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -3139,14 +3130,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/polytech/unice/tobeortohave/dummy/ShopContent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="916">
-          <caret line="97" column="9" selection-start-line="97" selection-start-column="9" selection-end-line="97" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/polytech/unice/tobeortohave/compare/ListShopCompareFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="212">
@@ -3177,13 +3160,21 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/polytech/unice/tobeortohave/dummy/ShopContent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="348">
+          <caret line="86" column="41" selection-start-line="86" selection-start-column="41" selection-end-line="86" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/polytech/unice/tobeortohave/compare/CompareActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="43" column="40" selection-start-line="43" selection-start-column="40" selection-end-line="43" selection-end-column="40" />
+        <state relative-caret-position="242">
+          <caret line="54" column="49" selection-start-line="54" selection-start-column="49" selection-end-line="54" selection-end-column="49" />
           <folding>
-            <element signature="e#1430#2030#0" expanded="true" />
-            <element signature="e#2029#2030#0" expanded="true" />
+            <element signature="e#1455#2047#0" expanded="true" />
+            <element signature="e#2046#2047#0" expanded="true" />
           </folding>
         </state>
       </provider>
