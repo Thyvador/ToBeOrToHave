@@ -35,7 +35,7 @@
             android:label="@string/title_activity_compare"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".compare.CompareDetailsActivity"
+            android:name=".compare.details.CompareDetailsActivity"
             android:label="@string/title_activity_compare_details"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
