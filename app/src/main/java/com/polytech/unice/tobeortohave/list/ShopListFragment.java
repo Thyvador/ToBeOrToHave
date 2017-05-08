@@ -130,4 +130,6 @@ public class ShopListFragment extends Fragment {
         // TODO: Update argument type and name
         void onListFragmentInteraction(ShopDetail item);
     }
+
+    
 }

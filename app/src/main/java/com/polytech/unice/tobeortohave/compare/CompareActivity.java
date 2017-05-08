@@ -60,4 +60,6 @@ public class CompareActivity extends AppCompatActivity implements ListShopCompar
         }
 
     }
+
+
 }

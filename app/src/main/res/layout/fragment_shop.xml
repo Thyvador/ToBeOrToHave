@@ -21,14 +21,12 @@
 
         <FrameLayout
             android:id="@+id/shop_details_fragment"
-            android:name="com.polytech.unice.tobeortohave.list.shop.ShopDetailFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="0.7" />
 
         <FrameLayout
             android:id="@+id/employes_fragment"
-            android:name="com.polytech.unice.tobeortohave.list.shop.EmployeFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="0.3" />

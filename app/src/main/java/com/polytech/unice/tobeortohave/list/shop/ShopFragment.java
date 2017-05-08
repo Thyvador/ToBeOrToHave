@@ -54,8 +54,8 @@ public class ShopFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_shop, container, false);
 
         ((TextView) view.findViewById(R.id.shop_name)).setText(ShopContent.ITEM_MAP.get(shopId).name);
-        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.shop_details_fragment, ShopDetailFragment.newInstance(shopId)).addToBackStack(null).commit();
-        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.employes_fragment, EmployeFragment.newInstance(shopId)).addToBackStack(null).commit();
+        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.shop_details_fragment, ShopDetailFragment.newInstance(shopId)).commit();
+        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.employes_fragment, EmployeFragment.newInstance(shopId)).commit();
         return view;
     }
 
@@ -90,4 +90,7 @@ public class ShopFragment extends Fragment {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
+
+
+
 }
