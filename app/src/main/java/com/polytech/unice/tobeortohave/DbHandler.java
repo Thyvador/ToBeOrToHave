@@ -80,6 +80,7 @@ public class DbHandler extends SQLiteOpenHelper {
             }
 
             cursor.close();
+            db.close();
         }
     }
 
@@ -109,24 +110,27 @@ public class DbHandler extends SQLiteOpenHelper {
         }
 
         cursor.close();
+        db.close();
     }
 
     public void getSales() {
-
+        SalesContent.clear();
         SQLiteDatabase db = getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM sales ", new String[]{});
 
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
+            Log.d("Sale : ", cursor.getString(1));
             SalesContent.addItem(new SalesContent.Sales(
                             String.valueOf(cursor.getInt(0)),
                             cursor.getString(1),
-                            cursor.getInt(1)
+                            cursor.getInt(2)
                             ),
-                    cursor.getInt(2));
+                    cursor.getInt(3));
             cursor.moveToNext();
         }
 
         cursor.close();
+        db.close();
     }
 }

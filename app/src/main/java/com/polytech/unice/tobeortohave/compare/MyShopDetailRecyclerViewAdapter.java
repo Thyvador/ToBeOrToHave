@@ -48,6 +48,7 @@ public class MyShopDetailRecyclerViewAdapter extends RecyclerView.Adapter<MyShop
             @Override
             public void onClick(View v) {
                 if (null != mListener) {
+                    Log.d("Click : ", String.valueOf(fragId));
                     mListener.onListFragmentInteraction(holder.mItem, fragId);
                     changeCheckBox(holder);
                 }

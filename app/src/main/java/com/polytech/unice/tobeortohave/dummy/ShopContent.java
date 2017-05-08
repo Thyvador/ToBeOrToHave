@@ -74,7 +74,13 @@ public class ShopContent {
 
         @Override
         public String toString() {
-            return name;
+            return "ShopDetail{" +
+                    "id=" + id +
+                    ", name='" + name + '\'' +
+                    ", adress='" + adress + '\'' +
+                    ", benefits=" + benefits +
+                    ", cost=" + cost +
+                    '}';
         }
 
         @Override

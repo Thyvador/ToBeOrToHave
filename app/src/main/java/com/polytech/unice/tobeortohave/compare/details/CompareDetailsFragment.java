@@ -5,13 +5,17 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.TextView;
 
 import com.polytech.unice.tobeortohave.R;
 import com.polytech.unice.tobeortohave.compare.details.dummy.SalesContent;
 import com.polytech.unice.tobeortohave.dummy.ShopContent.ShopDetail;
+import com.polytech.unice.tobeortohave.list.shop.ShopDetailFragment;
 
 /**
  * A fragment representing a list of Items.
@@ -58,14 +62,16 @@ public class CompareDetailsFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_sales_list, container, false);
 
-        // Set the adapter
-        if (view instanceof RecyclerView) {
-            Context context = view.getContext();
-            RecyclerView recyclerView = (RecyclerView) view;
-            recyclerView.setLayoutManager(new LinearLayoutManager(context));
+        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.list);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-            recyclerView.setAdapter(new MySalesRecyclerViewAdapter(SalesContent.LIST_MAP.get(shopDetail.id), mListener));
-        }
+        recyclerView.setAdapter(new MySalesRecyclerViewAdapter(SalesContent.LIST_MAP.get(shopDetail.id), mListener));
+
+        Log.d("pfff", String.valueOf(shopDetail.id));
+        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.shop_details_fragment, ShopDetailFragment.newInstance(shopDetail.id)).commit();
+
+        ((TextView) view.findViewById(R.id.name_text_view)).setText(shopDetail.name);
+
         return view;
     }
 

@@ -6,10 +6,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.polytech.unice.tobeortohave.R;
 import com.polytech.unice.tobeortohave.compare.details.CompareDetailsFragment.OnListFragmentInteractionListener;
 import com.polytech.unice.tobeortohave.compare.details.dummy.SalesContent;
 import com.polytech.unice.tobeortohave.compare.details.dummy.SalesContent.Sales;
 
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -23,6 +25,7 @@ public class MySalesRecyclerViewAdapter extends RecyclerView.Adapter<MySalesRecy
     private final OnListFragmentInteractionListener mListener;
 
     public MySalesRecyclerViewAdapter(List<SalesContent.Sales> items, OnListFragmentInteractionListener listener) {
+        Collections.sort(items);
         mValues = items;
         mListener = listener;
     }
@@ -37,8 +40,8 @@ public class MySalesRecyclerViewAdapter extends RecyclerView.Adapter<MySalesRecy
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
-        holder.mIdView.setText(mValues.get(position).id);
-        holder.mContentView.setText(mValues.get(position).sale);
+        holder.mIdView.setText(mValues.get(position).sale);
+        holder.mContentView.setText(String.valueOf(mValues.get(position).number));
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,8 +69,8 @@ public class MySalesRecyclerViewAdapter extends RecyclerView.Adapter<MySalesRecy
         public ViewHolder(View view) {
             super(view);
             mView = view;
-            mIdView = (TextView) view.findViewById(R.id.id);
-            mContentView = (TextView) view.findViewById(R.id.content);
+            mIdView = (TextView) view.findViewById(R.id.name);
+            mContentView = (TextView) view.findViewById(R.id.number);
         }
 
         @Override

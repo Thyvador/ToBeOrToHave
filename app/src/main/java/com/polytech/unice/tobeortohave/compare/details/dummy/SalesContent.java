@@ -1,5 +1,7 @@
 package com.polytech.unice.tobeortohave.compare.details.dummy;
 
+import android.support.annotation.NonNull;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -11,26 +13,26 @@ import java.util.Map;
  * <p>
  * TODO: Replace all uses of this class before publishing your app.
  */
-public class DummyContent {
+public class SalesContent {
 
     /**
      * An array of sample (dummy) items.
      */
-    public static final List<DummyItem> ITEMS = new ArrayList<DummyItem>();
+    public static final List<Sales> ITEMS = new ArrayList<Sales>();
 
     /**
      * A map of sample (dummy) items, by ID.
      */
-    public static final Map<String, DummyItem> ITEM_MAP = new HashMap<String, DummyItem>();
+    public static final Map<String, Sales> ITEM_MAP = new HashMap<String, Sales>();
 
-    public static final Map<Integer, List<DummyItem>> LIST_MAP = new HashMap<>();
+    public static final Map<Integer, List<Sales>> LIST_MAP = new HashMap<>();
 
 
-    private static void addItem(DummyItem item, int shopId) {
+    public static void addItem(Sales item, int shopId) {
         ITEMS.add(item);
         ITEM_MAP.put(item.id, item);
         if (!LIST_MAP.containsKey(shopId)) {
-            LIST_MAP.put(shopId, new ArrayList<DummyItem>());
+            LIST_MAP.put(shopId, new ArrayList<Sales>());
         }
         LIST_MAP.get(shopId).add(item);
     }
@@ -45,15 +47,21 @@ public class DummyContent {
         return builder.toString();
     }
 
+    public static void clear() {
+        ITEMS.clear();
+        ITEM_MAP.clear();
+        LIST_MAP.clear();
+    }
+
     /**
      * A dummy item representing a piece of content.
      */
-    public static class DummyItem {
+    public static class Sales implements Comparable {
         public final String id;
         public final String sale;
         public final int number;
 
-        public DummyItem(String id, String sale, int number) {
+        public Sales(String id, String sale, int number) {
             this.id = id;
             this.sale = sale;
             this.number = number;
@@ -61,11 +69,18 @@ public class DummyContent {
 
         @Override
         public String toString() {
-            return "DummyItem{" +
+            return "Sales{" +
                     "id='" + id + '\'' +
                     ", sale='" + sale + '\'' +
                     ", number=" + number +
                     '}';
+        }
+
+        @Override
+        public int compareTo(@NonNull Object o) {
+            Sales sales = (Sales) o;
+            return sales.number - this.number;
+
         }
     }
 }

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,7 +23,7 @@ import com.polytech.unice.tobeortohave.dummy.ShopContent;
  */
 public class ShopDetailFragment extends Fragment {
 
-    private static int shopId;
+    private int shopId;
     private OnFragmentInteractionListener mListener;
 
     public ShopDetailFragment() {
@@ -36,7 +37,8 @@ public class ShopDetailFragment extends Fragment {
      */
     // TODO: Rename and change types and number of parameters
     public static ShopDetailFragment newInstance(int shopId) {
-        ShopDetailFragment.shopId = shopId;
+        ShopDetailFragment fragment = new ShopDetailFragment();
+        fragment.shopId = shopId;
         return new ShopDetailFragment();
     }
 
@@ -49,6 +51,8 @@ public class ShopDetailFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_shop_detail, container, false);
+        Log.d("map ", ShopContent.ITEM_MAP.toString());
+        Log.d("ta race", ShopContent.ITEM_MAP.get(shopId).toString());
         ((TextView) view.findViewById(R.id.shop_adress)).setText(String.format("Adresse : %s", ShopContent.ITEM_MAP.get(shopId).adress));
         ((TextView) view.findViewById(R.id.shop_benef)).setText(String.format("Bénéfices : %s", ShopContent.ITEM_MAP.get(shopId).benefits));
         ((TextView) view.findViewById(R.id.shop_cost)).setText(String.format("Coûts : %s", ShopContent.ITEM_MAP.get(shopId).cost));

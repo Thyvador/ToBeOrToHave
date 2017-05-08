@@ -48,4 +48,7 @@ INSERT INTO sales(id, sale, number, shopID) VALUES
   (6, 'Umberto Eco - Reconnaitre le fascisme', 1654, 3),
   (7, 'Kaaris - Blow', 54621, 3),
   (8, 'Fast & Furious 7', 135438, 4),
-  (9, 'JUL - On m''appelle l''ovni', 7564, 4);
+  (9, 'JUL - On m''appelle l''ovni', 7564, 4),
+  (10, 'Umberto Eco - Reconnaitre le fascisme', 123452, 4),
+  (11, 'Guardians of the galaxy', 1234, 4),
+  (12, 'Les cinquantes nuances de Grey', 135438, 4);

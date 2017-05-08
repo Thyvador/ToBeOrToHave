@@ -99,7 +99,7 @@ public class ShopListActivity extends AppCompatActivity implements ShopListFragm
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
 
         transaction.replace(R.id.detail_fragment, ShopFragment.newInstance(item.id));
-        transaction.addToBackStack(null).commit();
+        transaction.commit();
     }
 
     @Override

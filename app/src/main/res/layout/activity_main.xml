@@ -1,23 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
-    android:orientation="vertical">
+    android:background="#fff">
 
-    <Button
-        android:id="@+id/compare_shop_button"
-        android:layout_width="400dp"
-        android:layout_height="50dp"
-        android:text="@string/comparaison_de_magasin"
-        android:textSize="25sp" />
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.7"
+        android:src="@drawable/background" />
 
-    <Button
-        android:id="@+id/list_shop_button"
-        android:layout_width="400dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/liste_des_magasins"
-        android:textSize="25sp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="50dp"
+            android:layout_marginTop="50dp"
+            android:gravity="center"
+            android:text="@string/title"
+            android:textColor="#de4111"
+            android:textSize="70sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="90dp"
+            android:gravity="center"
+            android:text="@string/la_culture_pour_tous"
+            android:textColor="#000"
+            android:textSize="40sp" />
+
+        <Button
+            android:id="@+id/compare_shop_button"
+            android:layout_width="400dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            android:text="@string/comparaison_de_magasin"
+            android:textSize="25sp"
+            android:background="#cfde4111"/>
+
+        <Button
+            android:id="@+id/list_shop_button"
+            android:layout_width="400dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:text="@string/liste_des_magasins"
+            android:textSize="25sp"
+            android:background="#cfde4111"/>
+    </LinearLayout>
+
+
+</RelativeLayout>

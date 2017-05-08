@@ -15,4 +15,6 @@
     <string name="title_activity_compare">CompareActivity</string>
     <string name="comparer">Comparer</string>
     <string name="title_activity_compare_details">CompareDetailsActivity</string>
+    <string name="title">To Bo Or To Have</string>
+    <string name="la_culture_pour_tous">La culture pour tous.</string>
 </resources>

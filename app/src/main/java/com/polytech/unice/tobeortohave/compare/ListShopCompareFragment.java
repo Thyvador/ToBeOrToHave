@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,6 +38,7 @@ public class ListShopCompareFragment extends Fragment {
     // TODO: Customize parameter initialization
     @SuppressWarnings("unused")
     public static ListShopCompareFragment newInstance(int fragId) {
+        Log.d("Frag ", String.valueOf(fragId));
         ListShopCompareFragment fragment = new ListShopCompareFragment();
         fragment.fragId = fragId;
         return fragment;
