@@ -20,6 +20,9 @@ import com.polytech.unice.tobeortohave.R;
 import com.polytech.unice.tobeortohave.dummy.ShopContent;
 import com.polytech.unice.tobeortohave.dummy.ShopContent.ShopDetail;
 
+import java.util.Collections;
+import java.util.Comparator;
+
 /**
  * A fragment representing a list of Items.
  * <p/>
@@ -62,13 +65,31 @@ public class ShopListFragment extends Fragment {
         layoutFrag = (LinearLayout) view.findViewById(R.id.layout_list_shop);
 
 
+        final MyShopDetailsRecyclerViewAdapter adapter = new MyShopDetailsRecyclerViewAdapter(ShopContent.ITEMS, mListener);
         ArrayAdapter<CharSequence> spinnerAdapter = ArrayAdapter.createFromResource(getContext(), R.array.sort_choice, android.R.layout.simple_spinner_item);
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerSort.setAdapter(spinnerAdapter);
         spinnerSort.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
+                Comparator<ShopDetail> comparator = null;
+                if (position == 0) {
+                    comparator = new Comparator<ShopDetail>() {
+                        @Override
+                        public int compare(ShopDetail o1, ShopDetail o2) {
+                            return o2.id - o1.id;
+                        }
+                    };
+                } else if (position == 1) {
+                    comparator = new Comparator<ShopDetail>() {
+                        @Override
+                        public int compare(ShopDetail o1, ShopDetail o2) {
+                            return o2.benefits - o1.benefits;
+                        }
+                    };
+                }
+                Collections.sort(ShopContent.ITEMS, comparator);
+                adapter.notifyDataSetChanged();
             }
 
             @Override
@@ -79,7 +100,7 @@ public class ShopListFragment extends Fragment {
 
         recyclerView = (RecyclerView) view.findViewById(R.id.list);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerView.setAdapter(new MyShopDetailsRecyclerViewAdapter(ShopContent.ITEMS, mListener));
+        recyclerView.setAdapter(adapter);
         return view;
     }
 
@@ -107,9 +128,9 @@ public class ShopListFragment extends Fragment {
         super.onConfigurationChanged(newConfig);
 
         Log.d("ORIENTATION :", String.valueOf(newConfig.orientation));
-        if(newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE){
+        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
             layoutFrag.setOrientation(LinearLayout.HORIZONTAL);
-        }else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT){
+        } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT) {
             layoutFrag.setOrientation(LinearLayout.VERTICAL);
         }
         Log.d("Layout orientation :", String.valueOf(layoutFrag.getOrientation()));
@@ -131,5 +152,5 @@ public class ShopListFragment extends Fragment {
         void onListFragmentInteraction(ShopDetail item);
     }
 
-    
+
 }
