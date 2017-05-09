@@ -34,8 +34,6 @@ public class CompareActivity extends AppCompatActivity implements ListShopCompar
         findViewById(R.id.button_compare).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("item1 : " , item1.toString() );
-                Log.d("item2 : " , item2.toString() );
                 if (item1.equals(item2)){
                     Toast.makeText(getApplicationContext(), "Impossible de comparer deux fois le même magasin.", Toast.LENGTH_SHORT).show();
                 }else if (item1 != null && item2 != null){

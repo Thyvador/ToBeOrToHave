@@ -39,7 +39,7 @@ public class ShopDetailFragment extends Fragment {
     public static ShopDetailFragment newInstance(int shopId) {
         ShopDetailFragment fragment = new ShopDetailFragment();
         fragment.shopId = shopId;
-        return new ShopDetailFragment();
+        return fragment;
     }
 
     @Override
@@ -51,6 +51,7 @@ public class ShopDetailFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_shop_detail, container, false);
+        Log.d("id ", String.valueOf(shopId));
         Log.d("map ", ShopContent.ITEM_MAP.toString());
         Log.d("ta race", ShopContent.ITEM_MAP.get(shopId).toString());
         ((TextView) view.findViewById(R.id.shop_adress)).setText(String.format("Adresse : %s", ShopContent.ITEM_MAP.get(shopId).adress));

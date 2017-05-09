@@ -65,9 +65,9 @@ public class CompareDetailsFragment extends Fragment {
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.list);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
+        Log.d("pfff", String.valueOf(shopDetail.id));
         recyclerView.setAdapter(new MySalesRecyclerViewAdapter(SalesContent.LIST_MAP.get(shopDetail.id), mListener));
 
-        Log.d("pfff", String.valueOf(shopDetail.id));
         getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.shop_details_fragment, ShopDetailFragment.newInstance(shopDetail.id)).commit();
 
         ((TextView) view.findViewById(R.id.name_text_view)).setText(shopDetail.name);
