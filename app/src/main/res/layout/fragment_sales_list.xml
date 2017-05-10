@@ -49,19 +49,21 @@
                 android:weightSum="1">
 
                 <TextView
-                    android:paddingStart="20dp"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.7"
+                    android:paddingStart="20dp"
                     android:text="Produit"
-                    android:textColor="#000" />
+                    android:textColor="#000"
+                    android:textSize="20dp" />
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.7"
                     android:text="Nombre de ventes"
-                    android:textColor="#000" />
+                    android:textColor="#000"
+                    android:textSize="20dp" />
             </LinearLayout>
 
             <android.support.v7.widget.RecyclerView

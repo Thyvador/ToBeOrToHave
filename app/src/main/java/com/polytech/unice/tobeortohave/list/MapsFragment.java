@@ -44,7 +44,6 @@ import java.util.List;
 public class MapsFragment extends Fragment {
 
     private MapView mMapView;
-    private EditText editText;
     private List<Marker> markerShopDetailMap;
     private LatLng position;
 
@@ -61,7 +60,6 @@ public class MapsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_maps, null);
         mMapView = (MapView) rootView.findViewById(R.id.map);
-        editText = (EditText) rootView.findViewById(R.id.editText);
         mMapView.onCreate(savedInstanceState);
 
         mMapView.onResume(); // needed to get the map to display immediately
@@ -86,41 +84,6 @@ public class MapsFragment extends Fragment {
                 CameraPosition cameraPosition = new CameraPosition.Builder().target(position).zoom(12).build();
                 googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
 
-                editText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-                    @Override
-                    public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                        if (event.getKeyCode() == KeyEvent.KEYCODE_ENTER) {
-                            String stringBuilder = "https://maps.googleapis.com/maps/api/geocode/json?address=" + Uri.parse(v.getText().toString().replace(" ", "+")) +
-                                    "&key=" + getContext().getResources().getString(R.string.google_maps_key) + "&language=fr";
-
-                            JsonObjectRequest stringRequest = new JsonObjectRequest(Request.Method.GET, stringBuilder, null,
-                                    new Response.Listener<JSONObject>() {
-                                        @Override
-                                        public void onResponse(JSONObject response) {
-                                            try {
-                                                JSONObject location = response.getJSONArray("results").getJSONObject(0).getJSONObject("geometry").getJSONObject("location");
-                                                currentLocation.setPosition(new LatLng(location.getDouble("lat"), location.getDouble("lng")));
-                                                currentLocation.setZIndex(2.0f);
-                                                CameraPosition cameraPosition = new CameraPosition.Builder().target(new LatLng(location.getDouble("lat"), location.getDouble("lng")))
-                                                        .zoom(12).build();
-                                                googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
-
-                                            } catch (JSONException e) {
-                                                e.printStackTrace();
-                                            }
-                                        }
-                                    }, new Response.ErrorListener() {
-                                @Override
-                                public void onErrorResponse(VolleyError error) {
-                                    Toast.makeText(getContext(), "Erreur : Adresse Invalide", Toast.LENGTH_LONG).show();
-                                }
-                            });
-                            queue.add(stringRequest);
-                            return true;
-                        }
-                        return false;
-                    }
-                });
 
                 // For showing a move to my location button
                 if (ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION) !=

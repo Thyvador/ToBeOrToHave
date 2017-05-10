@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.polytech.unice.tobeortohave.R;
@@ -67,8 +68,6 @@ public class CompareDetailsFragment extends Fragment {
 
         Log.d("pfff", String.valueOf(shopDetail.id));
         recyclerView.setAdapter(new MySalesRecyclerViewAdapter(SalesContent.LIST_MAP.get(shopDetail.id), mListener));
-
-        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.shop_details_fragment, ShopDetailFragment.newInstance(shopDetail.id)).commit();
 
         ((TextView) view.findViewById(R.id.name_text_view)).setText(shopDetail.name);
 

@@ -22,11 +22,11 @@ CREATE TABLE sales(
   shopID INT);
 
 INSERT INTO shops (id, name, adress, benefits, cost) VALUES
-  (0, 'To Be Or To Have - Nice', 'Nice', 250000, 135000),
-  (1, 'To Be Or To Have - Paris', 'Paris', 300000, 11500),
-  (2, 'To Be Or To Have - Bollène', 'Bollène', 160000, 148500),
-  (3, 'To Be Or To Have - Biot', 'Biot', 240000, 162500),
-  (4, 'To Be Or To Have - Nîmes', 'Nîmes', 120000, 146500);
+  (0, 'Nice', 'Nice', 250000, 135000),
+  (1, 'Paris - CHamps Elysées', 'Paris', 300000, 11500),
+  (2, 'Bollène', 'Bollène', 160000, 148500),
+  (3, 'Biot - Saint Phillipe', 'Biot', 240000, 162500),
+  (4, 'Nîmes', 'Nîmes', 120000, 146500);
 
 INSERT INTO employes(id, name, role, shopId) VALUES
   (0, 'Sébastien Patrick', 'Manager', 0),
@@ -51,4 +51,11 @@ INSERT INTO sales(id, sale, number, shopID) VALUES
   (9, 'JUL - On m''appelle l''ovni', 7564, 4),
   (10, 'Umberto Eco - Reconnaitre le fascisme', 123452, 4),
   (11, 'Guardians of the galaxy', 1234, 4),
-  (12, 'Les cinquantes nuances de Grey', 135438, 4);
+  (13, 'Le Coran', 323135, 0),
+  (14, 'Le petit livre vert', 45345, 0),
+  (15, 'Le petit livre rouge', 323135, 1),
+  (16, 'La Bible', 45345, 1),
+  (17, 'Le petit livre violet', 323135, 2),
+  (18, 'La Torah', 45345, 2),
+  (19, 'Mein Kampf', 323135, 3),
+  (20, 'Le petit livre bleu', 45345, 3);
