@@ -15,13 +15,18 @@ import android.support.v7.widget.Toolbar;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.ImageSpan;
-import android.view.LayoutInflater;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.TextView;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.google.android.gms.maps.model.CameraPosition;
+import com.google.android.gms.maps.model.LatLng;
 import com.polytech.unice.tobeortohave.R;
 import com.polytech.unice.tobeortohave.dummy.ShopContent;
 import com.polytech.unice.tobeortohave.list.shop.EmployeFragment;
@@ -29,10 +34,13 @@ import com.polytech.unice.tobeortohave.list.shop.ShopDetailFragment;
 import com.polytech.unice.tobeortohave.list.shop.ShopFragment;
 import com.polytech.unice.tobeortohave.list.shop.dummy.EmployeContent;
 
+import org.json.JSONObject;
+
 public class ShopListActivity extends AppCompatActivity implements ShopListFragment.OnListFragmentInteractionListener,
         ShopFragment.OnFragmentInteractionListener,
         ShopDetailFragment.OnFragmentInteractionListener,
-        EmployeFragment.OnListFragmentInteractionListener{
+        EmployeFragment.OnListFragmentInteractionListener,
+        MapsFragment.OnclickLIstener {
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -48,6 +56,7 @@ public class ShopListActivity extends AppCompatActivity implements ShopListFragm
      * The {@link ViewPager} that will host the section contents.
      */
     private ViewPager mViewPager;
+    private MapsFragment mapsFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,6 +121,27 @@ public class ShopListActivity extends AppCompatActivity implements ShopListFragm
 
     }
 
+    @Override
+    public void onClick(View v) {
+        final EditText editText = (EditText) findViewById(R.id.myEditText);
+        editText.setVisibility(View.VISIBLE);
+        editText.requestFocus();
+
+        editText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+        @Override
+        public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+            if (event.getKeyCode() == KeyEvent.KEYCODE_ENTER) {
+                mapsFragment.setCurrentPosition(v.getText().toString());
+                editText.setText("");
+                editText.setVisibility(View.GONE);
+                return true;
+            }
+            return false;
+        }
+    });
+}
+
+
     /**
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
      * one of the sections/tabs/pages.
@@ -130,11 +160,12 @@ public class ShopListActivity extends AppCompatActivity implements ShopListFragm
         public Fragment getItem(int position) {
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
-            switch (position){
+            switch (position) {
                 case 0:
                     return ShopListFragment.newInstance();
                 case 1:
-                    return MapsFragment.newInstance();
+                    mapsFragment = MapsFragment.newInstance();
+                    return mapsFragment;
                 default:
                     return null;
             }
