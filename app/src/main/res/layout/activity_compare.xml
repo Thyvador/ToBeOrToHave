@@ -6,6 +6,12 @@
     android:layout_height="match_parent"
     tools:context="com.polytech.unice.tobeortohave.compare.CompareActivity">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/background"
+        android:scaleType="centerCrop"/>
+
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -25,7 +31,7 @@
     <Button
         android:id="@+id/button_compare"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="80dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:background="@color/buttonColor"
@@ -48,7 +54,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="05"
-            android:layout_marginBottom="5dp"/>
+            android:layout_marginTop="5dp"/>
 
 
         <FrameLayout

@@ -169,8 +169,6 @@ public class MapsFragment extends Fragment {
                     public void onResponse(JSONObject response) {
                         try {
                             JSONObject location = response.getJSONArray("results").getJSONObject(0).getJSONObject("geometry").getJSONObject("location");
-                            currentLocation.setPosition(new LatLng(location.getDouble("lat"), location.getDouble("lng")));
-                            currentLocation.setZIndex(2.0f);
                             final CameraPosition cameraPosition = new CameraPosition.Builder().target(new LatLng(location.getDouble("lat"), location.getDouble("lng")))
                                     .zoom(12).build();
                             mMapView.getMapAsync(new OnMapReadyCallback() {
