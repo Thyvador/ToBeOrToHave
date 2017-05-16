@@ -1,5 +1,6 @@
 package com.polytech.unice.tobeortohave.compare.details;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
@@ -81,9 +82,9 @@ public class CompareDetailsActivity extends AppCompatActivity implements Compare
 
 
         BarDataSet barDataSet1 = new BarDataSet(valueSet1, item1.name + "   ");
-        barDataSet1.setColor(Color.parseColor("#de4111"));
+        barDataSet1.setColor(getResources().getColor(R.color.colorAccent));
         BarDataSet barDataSet2 = new BarDataSet(valueSet2, item2.name);
-        barDataSet2.setColor(Color.parseColor("#0043ca"));
+        barDataSet2.setColor(getResources().getColor(R.color.colorPrimaryDark));
 
         dataSets = new ArrayList<>();
         dataSets.add(barDataSet1);

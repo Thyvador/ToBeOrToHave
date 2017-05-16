@@ -131,7 +131,9 @@ public class ShopListActivity extends AppCompatActivity implements ShopListFragm
         @Override
         public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
             if (event.getKeyCode() == KeyEvent.KEYCODE_ENTER) {
-                mapsFragment.setCurrentPosition(v.getText().toString());
+                if (!"".equals(editText.getText().toString())){
+                    mapsFragment.setCurrentPosition(v.getText().toString());
+                }
                 editText.setText("");
                 editText.setVisibility(View.GONE);
                 return true;
