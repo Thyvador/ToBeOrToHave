@@ -5,18 +5,20 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
+import android.widget.CompoundButton;
+import android.widget.EditText;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import com.polytech.unice.tobeortohave.R;
 import com.polytech.unice.tobeortohave.compare.details.dummy.SalesContent;
 import com.polytech.unice.tobeortohave.dummy.ShopContent.ShopDetail;
-import com.polytech.unice.tobeortohave.list.shop.ShopDetailFragment;
 
 /**
  * A fragment representing a list of Items.
@@ -32,6 +34,7 @@ public class CompareDetailsFragment extends Fragment {
     private OnListFragmentInteractionListener mListener;
 
     private ShopDetail shopDetail;
+    private MySalesRecyclerViewAdapter adapter;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -67,9 +70,45 @@ public class CompareDetailsFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         Log.d("pfff", String.valueOf(shopDetail.id));
-        recyclerView.setAdapter(new MySalesRecyclerViewAdapter(SalesContent.LIST_MAP.get(shopDetail.id), mListener));
+        adapter = new MySalesRecyclerViewAdapter(SalesContent.LIST_MAP.get(shopDetail.id), mListener);
+        recyclerView.setAdapter(adapter);
 
         ((TextView) view.findViewById(R.id.name_text_view)).setText(shopDetail.name);
+
+        final EditText filterEdit = ((EditText) view.findViewById(R.id.edit_filter));
+
+        // TODO: 17/05/2017 Régler probleme communication avec l'adapter
+        filterEdit.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                adapter.filter(s.toString());
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+
+        ((Switch) view.findViewById(R.id.switch_filter)).setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    filterEdit.setVisibility(View.VISIBLE);
+                    filterEdit.requestFocus();
+                } else {
+                    filterEdit.setVisibility(View.GONE);
+                    filterEdit.setText("");
+                    adapter.unfilter();
+                }
+            }
+        });
 
         return view;
     }
@@ -92,6 +131,7 @@ public class CompareDetailsFragment extends Fragment {
         mListener = null;
     }
 
+
     /**
      * This interface must be implemented by activities that contain this
      * fragment to allow an interaction in this fragment to be communicated
@@ -106,4 +146,6 @@ public class CompareDetailsFragment extends Fragment {
         // TODO: Update argument type and name
         void onListFragmentInteraction(SalesContent.Sales item);
     }
+
+
 }

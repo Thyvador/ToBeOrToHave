@@ -1,6 +1,7 @@
 package com.polytech.unice.tobeortohave.compare.details;
 
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,22 +12,24 @@ import com.polytech.unice.tobeortohave.compare.details.CompareDetailsFragment.On
 import com.polytech.unice.tobeortohave.compare.details.dummy.SalesContent;
 import com.polytech.unice.tobeortohave.compare.details.dummy.SalesContent.Sales;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 /**
  * {@link RecyclerView.Adapter} that can display a {@link Sales} and makes a call to the
  * specified {@link OnListFragmentInteractionListener}.
- * TODO: Replace the implementation with code for your data type.
  */
 public class MySalesRecyclerViewAdapter extends RecyclerView.Adapter<MySalesRecyclerViewAdapter.ViewHolder> {
 
     private final List<Sales> mValues;
+    private List<Sales> displayValues;
     private final OnListFragmentInteractionListener mListener;
 
     public MySalesRecyclerViewAdapter(List<SalesContent.Sales> items, OnListFragmentInteractionListener listener) {
         Collections.sort(items);
         mValues = items;
+        displayValues = new ArrayList<>(mValues);
         mListener = listener;
     }
 
@@ -39,9 +42,10 @@ public class MySalesRecyclerViewAdapter extends RecyclerView.Adapter<MySalesRecy
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
-        holder.mItem = mValues.get(position);
-        holder.mIdView.setText(mValues.get(position).sale);
-        holder.mContentView.setText(String.valueOf(mValues.get(position).number));
+        Log.d("list ", displayValues.toString());
+        holder.mItem = displayValues.get(position);
+        holder.mIdView.setText(displayValues.get(position).sale);
+        holder.mContentView.setText(String.valueOf(displayValues.get(position).number));
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,7 +61,20 @@ public class MySalesRecyclerViewAdapter extends RecyclerView.Adapter<MySalesRecy
 
     @Override
     public int getItemCount() {
-        return mValues.size();
+        return displayValues.size();
+    }
+
+    public void filter(String str) {
+        displayValues.clear();
+        for (Sales sales : mValues){
+            if (sales.sale.toLowerCase().contains(str.toLowerCase())) displayValues.add(sales);
+        }
+        notifyDataSetChanged();
+    }
+
+    public void unfilter() {
+        displayValues = new ArrayList<>(mValues);
+        notifyDataSetChanged();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -78,4 +95,5 @@ public class MySalesRecyclerViewAdapter extends RecyclerView.Adapter<MySalesRecy
             return super.toString() + " '" + mContentView.getText() + "'";
         }
     }
+
 }

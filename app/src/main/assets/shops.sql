@@ -29,14 +29,20 @@ INSERT INTO shops (id, name, adress, benefits, cost) VALUES
   (4, 'Nîmes', 'Nîmes', 120000, 146500);
 
 INSERT INTO employes(id, name, role, shopId) VALUES
-  (0, 'Sébastien Patrick', 'Manager', 0),
+  (0, 'Patrcik Sébastien', 'Manager', 0),
   (1, 'Jackie Michel', 'Responsable marketing', 0),
   (2, 'Luke Skywalker', 'Responsable rayon', 0),
   (3, 'R2 D2', 'Caisse enregistreuse', 0),
   (4, 'Jean-Michel Test', 'Manager', 1),
   (5, 'Lando Calrissian', 'Responsable rayon', 2),
   (6, 'C3 PO', 'Responsable communication', 3),
-  (7, 'The Doctor', 'Responsable tech', 4);
+  (7, 'The Doctor', 'Responsable tech', 4),
+  (8, 'Chewbacca', 'Responsable rayon', 4),
+  (9, 'Leia Organa', 'Responsable rayon femmes', 1),
+  (10, 'Yoda', 'Manager', 1),
+  (11, 'Mace Windu', 'Manager', 2),
+  (12, 'Obi wan Kennodi', 'Responsable publicité', 2),
+  (13, 'Ahsoka Tano', 'Manager', 3);
 
 INSERT INTO sales(id, sale, number, shopID) VALUES
   (0, 'JUL - On m''appelle l''ovni', 150000, 0),

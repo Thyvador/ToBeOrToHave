@@ -44,7 +44,6 @@ public class MapsFragment extends Fragment {
 
     private MapView mMapView;
     private List<Marker> markerShopDetailMap;
-    private LatLng position;
     private Marker currentLocation;
     private RequestQueue queue;
 
@@ -80,11 +79,7 @@ public class MapsFragment extends Fragment {
 
                 queue = Volley.newRequestQueue(getContext());
 
-                position = new LatLng(10, 10);
                 final LatLngBounds.Builder builder = new LatLngBounds.Builder();
-
-
-                currentLocation = googleMap.addMarker(new MarkerOptions().position(position).title("Marker Title").snippet("Marker Description"));
 
 
                 // For showing a move to my location button
@@ -148,7 +143,7 @@ public class MapsFragment extends Fragment {
                     @Override
                     public void onRequestFinished(Request<Object> request) {
                         LatLngBounds bounds = builder.build();
-                        CameraUpdate cu = CameraUpdateFactory.newLatLngBounds(bounds, 20);
+                        CameraUpdate cu = CameraUpdateFactory.newLatLngBounds(bounds, 150);
                         googleMap.moveCamera(cu);
 
                     }
@@ -170,7 +165,7 @@ public class MapsFragment extends Fragment {
                         try {
                             JSONObject location = response.getJSONArray("results").getJSONObject(0).getJSONObject("geometry").getJSONObject("location");
                             final CameraPosition cameraPosition = new CameraPosition.Builder().target(new LatLng(location.getDouble("lat"), location.getDouble("lng")))
-                                    .zoom(12).build();
+                                    .zoom(15).build();
                             mMapView.getMapAsync(new OnMapReadyCallback() {
                                 @Override
                                 public void onMapReady(GoogleMap googleMap) {

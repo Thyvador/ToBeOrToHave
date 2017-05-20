@@ -21,6 +21,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/text_margin"
                 android:layout_weight="0.7"
+                android:textSize="20sp"
                 android:textAppearance="?attr/textAppearanceListItem" />
 
             <TextView
@@ -29,6 +30,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/text_margin"
                 android:layout_weight="0.3"
+                android:textSize="20sp"
                 android:textAppearance="?attr/textAppearanceListItem" />
         </LinearLayout>
     </android.support.v7.widget.CardView>

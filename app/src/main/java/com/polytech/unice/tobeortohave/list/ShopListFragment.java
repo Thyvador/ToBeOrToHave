@@ -66,8 +66,8 @@ public class ShopListFragment extends Fragment {
 
 
         final MyShopDetailsRecyclerViewAdapter adapter = new MyShopDetailsRecyclerViewAdapter(ShopContent.ITEMS, mListener);
-        ArrayAdapter<CharSequence> spinnerAdapter = ArrayAdapter.createFromResource(getContext(), R.array.sort_choice, android.R.layout.simple_spinner_item);
-        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter<CharSequence> spinnerAdapter = ArrayAdapter.createFromResource(getContext(), R.array.sort_choice, R.layout.spinner_item);
+        spinnerAdapter.setDropDownViewResource(R.layout.spinner_item);
         spinnerSort.setAdapter(spinnerAdapter);
         spinnerSort.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
