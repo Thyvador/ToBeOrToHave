@@ -12,8 +12,6 @@ import android.view.ViewGroup;
 
 import com.polytech.unice.tobeortohave.DbHandler;
 import com.polytech.unice.tobeortohave.R;
-import com.polytech.unice.tobeortohave.compare.dummy.DummyContent;
-import com.polytech.unice.tobeortohave.compare.dummy.DummyContent.DummyItem;
 import com.polytech.unice.tobeortohave.dummy.ShopContent;
 import com.polytech.unice.tobeortohave.dummy.ShopContent.ShopDetail;
 

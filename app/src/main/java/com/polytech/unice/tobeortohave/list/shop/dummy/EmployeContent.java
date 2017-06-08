@@ -16,12 +16,12 @@ public class EmployeContent {
     /**
      * An array of sample (dummy) items.
      */
-    public static final List<EmployerDetails> ITEMS = new ArrayList<EmployerDetails>();
+    public static final List<EmployerDetails> ITEMS = new ArrayList<>();
 
     /**
      * A map of sample (dummy) items, by ID.
      */
-    public static final Map<String, EmployerDetails> ITEM_MAP = new HashMap<String, EmployerDetails>();
+    public static final Map<String, EmployerDetails> ITEM_MAP = new HashMap<>();
 
     private static final int COUNT = 25;
 

@@ -22,11 +22,11 @@ CREATE TABLE sales(
   shopID INT);
 
 INSERT INTO shops (id, name, adress, benefits, cost) VALUES
-  (0, 'Nice', 'Nice', 250000, 135000),
-  (1, 'Paris - CHamps Elysées', 'Paris', 300000, 11500),
-  (2, 'Bollène', 'Bollène', 160000, 148500),
-  (3, 'Biot - Saint Phillipe', 'Biot', 240000, 162500),
-  (4, 'Nîmes', 'Nîmes', 120000, 146500);
+  (0, 'ToBeOrToHave - Nice', '13 Boulevard Jean Médecin, Nice', 250000, 135000),
+  (1, 'ToBeOrToHave - Champs Elysées', 'Champs Elysées, Paris', 300000, 11500),
+  (2, 'ToBeOrToHave - Bollène', 'Rue de la paix, Bollène', 160000, 148500),
+  (3, 'ToBeOrToHave - Biot, Saint Phillipe', '200 AVENUE ROUMANILLE, ESPACE SAINT PHILIPPE, Biot', 240000, 162500),
+  (4, 'ToBeOrToHave - Nîmes', '10 Avenus Kennedy, Nîmes', 120000, 146500);
 
 INSERT INTO employes(id, name, role, shopId) VALUES
   (0, 'Patrcik Sébastien', 'Manager', 0),

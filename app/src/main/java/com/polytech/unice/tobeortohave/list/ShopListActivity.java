@@ -22,19 +22,12 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.google.android.gms.maps.model.CameraPosition;
-import com.google.android.gms.maps.model.LatLng;
 import com.polytech.unice.tobeortohave.R;
 import com.polytech.unice.tobeortohave.dummy.ShopContent;
 import com.polytech.unice.tobeortohave.list.shop.EmployeFragment;
 import com.polytech.unice.tobeortohave.list.shop.ShopDetailFragment;
 import com.polytech.unice.tobeortohave.list.shop.ShopFragment;
 import com.polytech.unice.tobeortohave.list.shop.dummy.EmployeContent;
-
-import org.json.JSONObject;
 
 public class ShopListActivity extends AppCompatActivity implements ShopListFragment.OnListFragmentInteractionListener,
         ShopFragment.OnFragmentInteractionListener,

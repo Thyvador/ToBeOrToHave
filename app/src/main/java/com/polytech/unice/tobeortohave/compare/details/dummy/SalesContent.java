@@ -18,12 +18,12 @@ public class SalesContent {
     /**
      * An array of sample (dummy) items.
      */
-    public static final List<Sales> ITEMS = new ArrayList<Sales>();
+    public static final List<Sales> ITEMS = new ArrayList<>();
 
     /**
      * A map of sample (dummy) items, by ID.
      */
-    public static final Map<String, Sales> ITEM_MAP = new HashMap<String, Sales>();
+    public static final Map<String, Sales> ITEM_MAP = new HashMap<>();
 
     public static final Map<Integer, List<Sales>> LIST_MAP = new HashMap<>();
 

@@ -1,7 +1,5 @@
 package com.polytech.unice.tobeortohave.compare.details;
 
-import android.content.Context;
-import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -46,7 +44,7 @@ public class CompareDetailsActivity extends AppCompatActivity implements Compare
 
         BARENTRY = new ArrayList<>();
 
-        BarEntryLabels = new ArrayList<String>();
+        BarEntryLabels = new ArrayList<>();
         AddValuesToBARENTRY();
         BarData data = new BarData(BarEntryLabels, getDataSet());
         data.setValueTextSize(35);
@@ -61,7 +59,6 @@ public class CompareDetailsActivity extends AppCompatActivity implements Compare
 
 
         chart.animateY(3000);
-//        chart.invalidate();
 
     }
 

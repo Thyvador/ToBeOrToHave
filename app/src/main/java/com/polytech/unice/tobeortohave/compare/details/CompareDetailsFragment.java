@@ -10,7 +10,6 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Switch;
@@ -28,8 +27,6 @@ import com.polytech.unice.tobeortohave.dummy.ShopContent.ShopDetail;
  */
 public class CompareDetailsFragment extends Fragment {
 
-    // TODO: Customize parameter argument names
-    private static final String ARG_COLUMN_COUNT = "column-count";
     // TODO: Customize parameters
     private OnListFragmentInteractionListener mListener;
 
@@ -64,7 +61,7 @@ public class CompareDetailsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_sales_list, container, false);
+        final View view = inflater.inflate(R.layout.fragment_sales_list, container, false);
 
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.list);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -72,7 +69,6 @@ public class CompareDetailsFragment extends Fragment {
         Log.d("pfff", String.valueOf(shopDetail.id));
         adapter = new MySalesRecyclerViewAdapter(SalesContent.LIST_MAP.get(shopDetail.id), mListener);
         recyclerView.setAdapter(adapter);
-
         ((TextView) view.findViewById(R.id.name_text_view)).setText(shopDetail.name);
 
         final EditText filterEdit = ((EditText) view.findViewById(R.id.edit_filter));

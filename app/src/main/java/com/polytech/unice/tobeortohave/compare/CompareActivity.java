@@ -34,13 +34,19 @@ public class CompareActivity extends AppCompatActivity implements ListShopCompar
         findViewById(R.id.button_compare).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (item1.equals(item2)){
-                    Toast.makeText(getApplicationContext(), "Impossible de comparer deux fois le même magasin.", Toast.LENGTH_SHORT).show();
-                }else if (item1 != null && item2 != null){
-                    Intent intent = new Intent(getApplicationContext(), CompareDetailsActivity.class);
-                    intent.putExtra("item1", item1);
-                    intent.putExtra("item2", item2);
-                    startActivity(intent);
+                if (item1 != null && item2 != null){
+                    if (item1.equals(item2)) {
+                        Toast.makeText(getApplicationContext(), "Impossible de comparer deux fois le même magasin.", Toast.LENGTH_SHORT).show();
+                    }
+                    else {
+                        Intent intent = new Intent(getApplicationContext(), CompareDetailsActivity.class);
+                        intent.putExtra("item1", item1);
+                        intent.putExtra("item2", item2);
+                        startActivity(intent);
+                    }
+                }
+                else{
+                    Toast.makeText(getApplicationContext(), "Vous devez séléctionner 2 magasins pour les comparer.", Toast.LENGTH_SHORT).show();
                 }
             }
         });
